@@ -12,7 +12,6 @@
 h1, h2, h3, h4, h5, h6 {
     margin: 0;
 }
-
 .container {
     margin-right: auto;
     margin-left: auto;
@@ -49,8 +48,8 @@ h1, h2, h3, h4, h5, h6 {
 html {
   scroll-behavior: smooth;
 }
-section {
-  padding-top: 80px !important;
+section:not(section#header) {
+  padding-top: 4rem;
 }
 /* End Global Rules */
 
@@ -62,7 +61,7 @@ section {
     position: relative;
     background: url('images/landing.jpg');
     background-size: cover;
-    overflow-x: hidden;
+    overflow: hidden;
     
 }
  .overlay {
@@ -149,13 +148,12 @@ section {
     padding: 2rem 1rem;
     transition: .3s;
     border-bottom: 1px solid transparent;
-    
+}
+.active {
+  color: var(--m-color) !important;
+  border-bottom: 1px solid var(--m-color) !important;
+}
 
-}
-#header .container .nav .nav-links .nav-link a:hover {
-    color: var(--m-color);
-    border-bottom: 1px solid var(--m-color);
-}
 
 #header .container .nav i {
     font-size: 1.125rem;
@@ -194,9 +192,6 @@ section {
 
 /* services */
 
-#services{ 
-  padding-top: 4rem;
-}
 #services .container {
   padding-bottom: 2rem !important;
 }
@@ -247,12 +242,11 @@ section {
   opacity: .4;
 }
 #services .container {
-  padding: 0 8rem;
+  padding: 2rem 4rem;
 }
 #services .container .services-content {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  place-items: center;
+  display: flex;
+  justify-content: center;
   margin-top: 2rem;
 }
 
@@ -300,7 +294,9 @@ section {
   right: 100px;
 
 }
-
+#services .container .col {
+  flex-basis: 50%;
+}
 #services .design .design-text {
   color: #fff;
   width: 45%;
@@ -496,41 +492,11 @@ section {
   border: 1px solid black;
   background-color: white;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#about {
-  padding-top: 4rem;
-
-}
 #about .about-stats .container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  max-height: 580px;
   overflow: hidden;
 
 }
@@ -546,8 +512,6 @@ section {
 }
 
 #about .about-stats{
-  height: 400px;
-  max-height: 400px;
   background-color: #121116;
   display: flex;
   justify-content: center;
@@ -555,16 +519,17 @@ section {
   background-image: url('images/stats.png');
   background-size: cover;
   position: relative;
+  height: 400px;
 }
 #about .about-stats .container {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   flex-direction: row;
-  height: 200px;
   background-color: #096c89;
   position: relative;
   z-index: 1;
+  padding: 3rem 0;
 }
 #about .about-stats .container .stats {
   color: white;
@@ -593,20 +558,20 @@ section {
   
 }
 #about .about-stats .container .stats:nth-child(1) .icon::after {
-  top: -9px;
+  top: -8px;
   left: -9px;
 }
 #about .about-stats .container .stats:nth-child(2) .icon::after {
-  top: -9px;
-  left: -9px;
+  top: -7px;
+  left: -8px;
 }
 #about .about-stats .container .stats:nth-child(3) .icon::after {
-  top: -9px;
+  top: -6px;
   left: -8px;
 }
 #about .about-stats .container .stats:nth-child(4) .icon::after {
-  top: -9px;
-  left: -10px;
+  top: -8px;
+  left: -11px;
 }
 
 #about .about-stats .container .stats h1 {
@@ -948,10 +913,10 @@ progress#php::after {
 
 
 /* contact section  */
-
 #contact {
-  padding-top: 50px;
+  padding-bottom: 4rem;
 }
+
 #contact textarea, #contact input {
   display: inline-block;
 }
@@ -1006,14 +971,12 @@ footer {
   position: relative;
 
 }
-
 footer .sep::before, footer .sep::after {
   background-color: #fff;
 }
 footer .sep {
   border: 1px solid #fff;
 }
-
 footer .container {
   width: 100%;
   height: 400px;
@@ -1032,7 +995,6 @@ footer h4 {
   font-weight: 400;
   letter-spacing: 1px;
 }
-
 footer .icons a {
   font-size: 1.5rem;
   color: #fff;
@@ -1040,20 +1002,6 @@ footer .icons a {
 footer .icons a:not(:last-child) {
   margin-right: 1rem;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @media(max-width: 1024px){
   #header .welcome-text {
     padding: 2rem 1.7rem 2rem 9rem; 
@@ -1120,6 +1068,9 @@ footer .icons a:not(:last-child) {
   #services .container {
     padding: 0 1rem;
   }
+  #services .container .services-content {
+    flex-direction: column;
+  }
   #services .container .services-content .card i {
     margin: 0 1rem 0 ;
   }
@@ -1152,13 +1103,11 @@ footer .icons a:not(:last-child) {
 
   /* about  */
   #about .about-stats {
-    min-height: 100vh;
     padding: 50px 0;
   }
   #about .about-stats .container {
     flex-direction: column;
-    min-height: 100vh;
-    width: 80%;
+    width: 60%;
     justify-content: center;
   }  
   .quote h2 {
