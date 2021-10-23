@@ -241,9 +241,6 @@ section:not(section#header) {
   line-height: 2;
   opacity: .4;
 }
-#services .container {
-  padding: 2rem 4rem;
-}
 #services .container .services-content {
   display: flex;
   justify-content: center;
@@ -257,7 +254,7 @@ section:not(section#header) {
 }
 #services .container .services-content .card i {
   font-size: 3rem;
-  margin: 0 3rem;
+  margin: 0 3rem 0 0;
   font-weight: 200;
 }
 #services .container .services-content .card .text-content {
@@ -519,7 +516,7 @@ section:not(section#header) {
   background-image: url('images/stats.png');
   background-size: cover;
   position: relative;
-  height: 400px;
+  padding: 5rem 0;
 }
 #about .about-stats .container {
   display: flex;
@@ -1002,6 +999,31 @@ footer .icons a {
 footer .icons a:not(:last-child) {
   margin-right: 1rem;
 }
+footer .stt {
+  position: fixed;
+  z-index: 10;
+  bottom: 10px;
+  right: 10px;
+  background: #959595;
+  visibility: hidden;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: .3s;
+  opacity: 0;
+}
+footer .stt i {
+  font-size: 1.5rem;
+}
+.show {
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+
 @media(max-width: 1024px){
   #header .welcome-text {
     padding: 2rem 1.7rem 2rem 9rem; 
@@ -1042,7 +1064,9 @@ footer .icons a:not(:last-child) {
     right: 1rem;
 
   }
-  
+  .active {
+    color: #fff !important;
+  }
   #header .container .nav .nav-links {
     flex-direction: column;
     position: absolute;
@@ -1099,12 +1123,8 @@ footer .icons a:not(:last-child) {
   #portfolio .panels {
     width: 30%;
   }
-
-
   /* about  */
-  #about .about-stats {
-    padding: 50px 0;
-  }
+
   #about .about-stats .container {
     flex-direction: column;
     width: 60%;
@@ -1122,6 +1142,7 @@ footer .icons a:not(:last-child) {
   }
   #about .about-stats .container .stats h1{
     font-size: 1.5rem;
+    margin: .6rem 0;
   }
   #about .feedback-section .container {
     flex-direction: column;
